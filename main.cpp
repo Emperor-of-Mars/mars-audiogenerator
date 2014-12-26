@@ -7,7 +7,7 @@ using namespace std;
 int main(){
     cout << "Generating WAV" << endl;
     mag::mag m;
-    m.genSinus(500, 1, 10000);
+    m.genSinus(200, 1, 1000);
     cout << "writing file" << endl;
     m.writeToFile("sinus.wav");
     cout << "finished" << endl;

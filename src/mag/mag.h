@@ -11,6 +11,7 @@
 
 #include "include.h"
 
+#include "wavWriter.h"
 
 #ifndef _DEBUG_LEVEL
 	#define _DEBUG_LEVEL 2
@@ -28,7 +29,7 @@ public:
     unsigned int writeToFile(const char* filename);
 
 private:
-    std::vector<float> data;
+    std::vector<int> data;
 };
 
 } // mag
