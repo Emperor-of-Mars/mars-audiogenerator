@@ -12,6 +12,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++11" />
 					<Add option="-g" />
 				</Compiler>
 			</Target>
@@ -34,9 +35,11 @@
 		</Compiler>
 		<Unit filename="main.cpp" />
 		<Unit filename="main.h" />
-		<Unit filename="src/include.h" />
-		<Unit filename="src/mag.cpp" />
-		<Unit filename="src/mag.h" />
+		<Unit filename="src/mag/include.h" />
+		<Unit filename="src/mag/mag.cpp" />
+		<Unit filename="src/mag/mag.h" />
+		<Unit filename="src/mag/writeWav.cpp" />
+		<Unit filename="src/mag/writeWav.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
