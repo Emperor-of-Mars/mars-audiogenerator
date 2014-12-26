@@ -6,10 +6,7 @@ using namespace std;
 
 int main(){
     cout << "Generating WAV" << endl;
-    mag::mag m;
-    m.genSinus(200, 1, 1000);
-    cout << "writing file" << endl;
-    m.writeToFile("sinus.wav");
-    cout << "finished" << endl;
+    mag::sound *s = mag::genSinus(44100, 500, 1000000000, 5000);
+    s->writeToFile("sound.wav");
     return 0;
 }

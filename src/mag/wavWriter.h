@@ -10,6 +10,7 @@
 #define MAG_WRITE_WAV
 
 #include "include.h"
+#include "sound.h"
 
 
 #ifndef _DEBUG_LEVEL
@@ -18,13 +19,7 @@
 
 namespace mag{
 
-class wavWriter{
-public:
-    wavWriter();
-    ~wavWriter();
-
-    unsigned int writeToFile();
-};
+unsigned int writeToFile(const char* filename, void *data, unsigned int sampleBits, unsigned int numSamples, unsigned int sampleRate);
 
 } // mag
 

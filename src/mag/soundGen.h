@@ -1,20 +1,18 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		mag.h
+**	Name:		soundGen.h
 **	Project:	mars-audiogenerator
 **	Compile:	g++
 */
 
 
-#ifndef MAG
-#define MAG
+#ifndef MAG_SOUNDGEN
+#define MAG_SOUNDGEN
 
 #include "include.h"
 
 #include "sound.h"
-#include "soundGen.h"
-#include "wavWriter.h"
-#include "pluginManager.h"
+
 
 #ifndef _DEBUG_LEVEL
 	#define _DEBUG_LEVEL 2
@@ -22,12 +20,8 @@
 
 namespace mag{
 
-class mag{
-public:
-    mag();
-    ~mag();
-};
+sound *genSinus(unsigned int sampleRate, float freq, unsigned int ampl, unsigned int len_ms);
 
 } // mag
 
-#endif // MAG
+#endif // MAG_SOUNDGEN
