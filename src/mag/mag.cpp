@@ -20,8 +20,7 @@ unsigned int mag::genSinus(float freq, float ampl, unsigned int len_ms){
     data.resize(samplecount);
     float step = M_PI * 2 / freq, cur = 0;
     for(unsigned int i = 0; i < samplecount; i ++){
-        //data[i] = sin((float)i * freq) * ampl;
-        data[i] = sin(cur) * ampl;
+        data[i] = sinf(cur) * ampl;
         cur += step;
     }
 
@@ -47,11 +46,11 @@ unsigned int mag::writeToFile(const char* filename){
 	*(uint16_t*)&(head[20]) = 1;
 	*(uint16_t*)&(head[22]) = 1;
 	*(uint32_t*)&(head[24]) = 44100;
-	*(uint32_t*)&(head[28]) = (uint32_t)(44100 * 1 * (uint32_t)sizeof(float));
-	*(uint16_t*)&(head[32]) = (uint16_t)(1 * (uint16_t)(16 / 8));
-	*(uint16_t*)&(head[34]) = 16;
+	*(uint32_t*)&(head[28]) = (uint32_t)(44100 * 1 * (uint32_t)((sizeof(float) * 8 + 7) / 8));
+	*(uint16_t*)&(head[32]) = (uint16_t)(1 * (uint16_t)((sizeof(float) * 8 + 7) / 8));
+	*(uint16_t*)&(head[34]) = sizeof(float) * 8;
 	strncpy(&head[36], "data", 4);
-	*(uint32_t*)&(head[40]) = data.size() * (uint32_t)sizeof(float) - 36;
+	*(uint32_t*)&(head[40]) = data.size() * (uint32_t)sizeof(float) - 44;
 
     stream.write(head, sizeof(head));
     stream.write((const char *)(&data[0]), data.size() * sizeof(float));

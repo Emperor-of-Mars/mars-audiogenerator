@@ -18,10 +18,10 @@
 
 namespace mag{
 
-class writeWav{
+class wavWriter{
 public:
-    writeWav();
-    ~writeWav();
+    wavWriter();
+    ~wavWriter();
 
     unsigned int writeToFile();
 };
