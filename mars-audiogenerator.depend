@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1419554599 source:/home/mars/Projekte/mag/mars-audiogenerator/main.cpp
+	<iostream>
+	"main.h"
+
+1419555435 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/mag.cpp
+	"mag.h"
+
+1419547094 /home/mars/Projekte/mag/mars-audiogenerator/src/mag/mag.h
+	"include.h"
+
+1419550400 /home/mars/Projekte/mag/mars-audiogenerator/src/mag/include.h
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<vector>
+	<string>
+	<string.h>
+	<cmath>
+	<fstream>
+
+1419546280 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/writeWav.cpp
+	"writeWav.h"
+
+1419547575 /home/mars/Projekte/mag/mars-audiogenerator/src/mag/writeWav.h
+	"include.h"
+
+1419548765 /home/mars/Projekte/mag/mars-audiogenerator/main.h
+	"src/mag/mag.h"
+
