@@ -20,7 +20,8 @@
 
 namespace mag{
 
-sound *genSinus(unsigned int sampleRate, float freq, unsigned int ampl, unsigned int len_ms);
+soundData *genSound(const char *type, const char *values);
+soundData *genSinus(unsigned int sampleRate, float freq, unsigned int ampl, unsigned int len_ms);
 
 } // mag
 

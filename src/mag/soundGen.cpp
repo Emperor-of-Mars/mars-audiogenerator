@@ -10,14 +10,21 @@
 namespace mag{
 
 
-sound *genSinus(unsigned int sampleRate, float freq, unsigned int ampl, unsigned int len_ms){
+soundData *genSound(const char *type, const char *values){
+    return NULL;
+}
+
+soundData *genSinus(unsigned int sampleRate, float freq, unsigned int ampl, unsigned int len_ms){
     unsigned int numSamples = sampleRate * len_ms / 1000;
-    std::vector<float>data;
-    data.resize(numSamples);
+    soundData *s = new soundData;
+    s->mData.resize(numSamples);
     for(unsigned int i = 0; i < numSamples; i ++){
-        data[i] = sinf(freq * ((float)i / (float)sampleRate) * 2.f * M_PI);
+        s->mData[i] = sinf(freq * ((float)i / (float)sampleRate) * 2.f * M_PI);
     }
-    sound *s = new sound(data, numSamples, sampleRate, freq, ampl);
+    s->mNumSamples = numSamples;
+    s->mSampleRate = sampleRate;
+    s->mFreq = freq;
+    s->mAmplitude = ampl;
     return s;
 }
 

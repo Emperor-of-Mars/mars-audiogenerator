@@ -18,21 +18,9 @@
 
 namespace mag{
 
-class sound{
-public:
-    sound();
-    sound(std::vector<float> data, unsigned int numSamples, unsigned int sampleRate, unsigned int freq, unsigned int amplitude);
-    ~sound();
-
-    unsigned int manipulate(const char* key, const char* value);
-
-    unsigned int writeToFile(const char* filename);
-
-    uint8_t *genRaw8();
-    uint16_t *genRaw16();
-    uint32_t *genRaw32();
-
-//private:
+struct soundData{
+    soundData();
+    ~soundData();
     std::vector<float> mData;
     unsigned int mNumSamples;
     unsigned int mSampleRate;
@@ -40,6 +28,34 @@ public:
     unsigned int mAmplitude;
 };
 
+class sound{
+public:
+    sound();
+    sound(soundData *s);
+    sound(std::vector<float> data, unsigned int numSamples, unsigned int sampleRate, unsigned int freq, unsigned int amplitude);
+    sound(float *data, unsigned int numSamples, unsigned int sampleRate, unsigned int freq, unsigned int amplitude);
+    ~sound();
+
+    int operator =(const sound *s);
+    int operator =(const soundData *s);
+
+    int manipulate(const char* key, const char* value);
+
+    int writeToFile(const char* filename);
+
+    uint8_t *genRaw8();
+    uint16_t *genRaw16();
+    uint32_t *genRaw32();
+
+private:
+    soundData mSoundData;
+};
+
 } // mag
 
 #endif // MAG_SOUND
+
+
+
+
+
