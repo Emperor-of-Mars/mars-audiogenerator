@@ -17,6 +17,7 @@
 #include <string.h>
 #include <cmath>
 #include <fstream>
+#include <dlfcn.h>
 
 #ifndef _DEBUG_LEVEL
 	#define _DEBUG_LEVEL 2

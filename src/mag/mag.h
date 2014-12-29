@@ -14,6 +14,7 @@
 #include "sound.h"
 #include "soundGen.h"
 #include "wavWriter.h"
+#include "pluginLoader.h"
 #include "pluginManager.h"
 
 #ifndef _DEBUG_LEVEL
@@ -24,7 +25,7 @@ namespace mag{
 
 class mag{
 public:
-    mag();
+    mag(const char *pluginPath = NULL);
     ~mag();
 };
 

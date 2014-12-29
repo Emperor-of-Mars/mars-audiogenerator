@@ -33,13 +33,24 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Linker>
+			<Add option="-ldl" />
+		</Linker>
 		<Unit filename="main.cpp" />
 		<Unit filename="main.h" />
 		<Unit filename="src/mag/include.h" />
 		<Unit filename="src/mag/mag.cpp" />
 		<Unit filename="src/mag/mag.h" />
-		<Unit filename="src/mag/writeWav.cpp" />
-		<Unit filename="src/mag/writeWav.h" />
+		<Unit filename="src/mag/pluginLoader.cpp" />
+		<Unit filename="src/mag/pluginLoader.h" />
+		<Unit filename="src/mag/pluginManager.cpp" />
+		<Unit filename="src/mag/pluginManager.h" />
+		<Unit filename="src/mag/sound.cpp" />
+		<Unit filename="src/mag/sound.h" />
+		<Unit filename="src/mag/soundGen.cpp" />
+		<Unit filename="src/mag/soundGen.h" />
+		<Unit filename="src/mag/wavWriter.cpp" />
+		<Unit filename="src/mag/wavWriter.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

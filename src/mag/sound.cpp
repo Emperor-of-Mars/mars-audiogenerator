@@ -5,7 +5,7 @@
 **	Compile:	g++
 */
 
-#include "wavWriter.h"
+#include "sound.h"
 
 namespace mag{
 
