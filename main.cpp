@@ -11,9 +11,10 @@ int main(){
 
     cout << "Plugin Loader" << endl;
     mag::pluginLoader plug("src/plugins/plugintest.so");
-    mag::pluginInterface *pli = plug.get();
+    mag::pluginInterface *pli = plug.create();
     if(pli == NULL) return 1;
     std::cout << pli->getInfo() << std::endl;
+    plug.destroy(pli);
 
     return 0;
 }

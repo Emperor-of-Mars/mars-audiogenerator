@@ -37,15 +37,15 @@ public:
     ~pluginLoader();
 
     int load(const char *path);
-    pluginInterface *get();
-    int destroy();
+    pluginInterface *create();
+    int destroy(pluginInterface *instance);
 
 private:
     void *mPlugin;
-    pluginInterface *mPluginInterface;
     create_t *mCreate;
     destroy_t *mDestroy;
     const char *mName;
+    std::vector<pluginInterface *> mInstances;
 };
 
 

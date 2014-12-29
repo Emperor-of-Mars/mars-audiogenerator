@@ -18,7 +18,6 @@ pluginInterface::~pluginInterface(){
 
 pluginLoader::pluginLoader(const char *path){
     mPlugin = NULL;
-    mPluginInterface = NULL;
     mCreate = NULL;
     mDestroy = NULL;
     mName = NULL;
@@ -26,15 +25,23 @@ pluginLoader::pluginLoader(const char *path){
 }
 
 pluginLoader::~pluginLoader(){
-    destroy();
-
-    if(mPlugin != NULL && mDestroy != NULL){
-        mDestroy(mPluginInterface);
-        //delete mPlugin too
+    if(mPlugin == NULL){
+        #if _DEBUG_LEVEL >= 1
+            std::cerr << "plugin not loaded!" << std::endl;
+        #endif
+        return;
     }
-    delete [] mName;
+
+    while(mInstances.size() > 0){
+        mDestroy(mInstances[0]);
+        mInstances.erase(mInstances.begin());
+    }
+
+    dlclose(mPlugin);
+
+    if(mName != NULL) delete [] mName;
+
     mPlugin = NULL;
-    mPluginInterface = NULL;
     mCreate = NULL;
     mDestroy = NULL;
     mName = NULL;
@@ -81,32 +88,33 @@ int pluginLoader::load(const char *path){
         return -2;
     }
     dlerror();
-
-    mPluginInterface = mCreate();
     return 0;
 }
 
-pluginInterface *pluginLoader::get(){
-    return mPluginInterface;
+pluginInterface *pluginLoader::create(){
+    if(mPlugin == NULL){
+        #if _DEBUG_LEVEL >= 1
+            std::cerr << "plugin not loaded!" << std::endl;
+        #endif
+        return NULL;
+    }
+    pluginInterface *pli = mCreate();
+    mInstances.push_back(pli);
+    return pli;
 }
 
-int pluginLoader::destroy(){
-    if(mPlugin == NULL || mDestroy == NULL){
+int pluginLoader::destroy(pluginInterface *instance){
+    if(mPlugin == NULL){
         #if _DEBUG_LEVEL >= 1
             std::cerr << "plugin not loaded!" << std::endl;
         #endif
         return -1;
     }
-    mDestroy(mPluginInterface);
-    dlclose(mPlugin);
-
-    if(mName != NULL) delete [] mName;
-
-    mPlugin = NULL;
-    mPluginInterface = NULL;
-    mCreate = NULL;
-    mDestroy = NULL;
-    mName = NULL;
+    for(unsigned int i = 0; i < mInstances.size(); i++){
+        if(instance == mInstances[i]) mInstances.erase(mInstances.begin() + i);
+    }
+    mDestroy(instance);
+    instance = NULL;
     return 0;
 }
 
