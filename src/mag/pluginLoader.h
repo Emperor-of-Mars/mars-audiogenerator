@@ -10,6 +10,7 @@
 #define PLUGIN_LOADER
 
 #include "include.h"
+#include "pluginInterface.h"
 
 
 #ifndef _DEBUG_LEVEL
@@ -18,18 +19,6 @@
 
 namespace mag{
 
-
-class pluginInterface{
-public:
-    pluginInterface();
-    virtual ~pluginInterface();
-
-    virtual const char *getInfo() const = 0;
-    virtual int command(const char *command, void *data, unsigned int lenData) const = 0;
-};
-
-typedef pluginInterface *create_t();
-typedef void destroy_t(pluginInterface *);
 
 class pluginLoader{
 public:

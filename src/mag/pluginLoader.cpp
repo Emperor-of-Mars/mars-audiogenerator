@@ -10,12 +10,6 @@
 namespace mag{
 
 
-pluginInterface::pluginInterface(){
-}
-
-pluginInterface::~pluginInterface(){
-}
-
 pluginLoader::pluginLoader(const char *path){
     mPlugin = NULL;
     mCreate = NULL;
