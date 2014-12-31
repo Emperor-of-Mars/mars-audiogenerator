@@ -1,13 +1,13 @@
 /*
 **	Author:		Martin Schwarz
 **	Name:		pluginManager.cpp
-**	Project:	mars-audiogenerator
+**	Project:	mars-pluginmanager
 **	Compile:	g++
 */
 
 #include "pluginManager.h"
 
-namespace mag{
+namespace mplug{
 
 
 pluginManager::pluginManager(const char *configPath){
@@ -39,7 +39,7 @@ int pluginManager::deletePlugin(const char *pluginName){
 }
 
 
-} // mag
+} // mplug
 
 
 

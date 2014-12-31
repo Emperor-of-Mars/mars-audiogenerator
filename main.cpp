@@ -6,8 +6,8 @@ using namespace std;
 
 int main(){
     cout << "Plugin Loader" << endl;
-    mag::pluginLoader plug("res/plugins/plugintest.so");
-    mag::pluginInterface *pli = plug.create();
+    mplug::pluginLoader plug("res/plugins/plugintest.so");
+    mplug::pluginInterface *pli = plug.create();
     if(pli == NULL) return 1;
     std::cout << pli->getInfo() << std::endl;
     plug.destroy(pli);

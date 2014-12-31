@@ -1,7 +1,7 @@
 /*
 **	Author:		Martin Schwarz
 **	Name:		pluginInterface.h
-**	Project:	mars-audiogenerator
+**	Project:	mars-pluginmanager
 **	Compile:	g++
 */
 
@@ -16,7 +16,7 @@
 	#define _DEBUG_LEVEL 2
 #endif // _DEBUG_LEVEL
 
-namespace mag{
+namespace mplug{
 
 
 class pluginInterface{
@@ -32,7 +32,7 @@ typedef pluginInterface *create_t();
 typedef void destroy_t(pluginInterface *);
 
 
-} // mag
+} // mplug
 
 #endif // PLUGIN_INTERFACE
 

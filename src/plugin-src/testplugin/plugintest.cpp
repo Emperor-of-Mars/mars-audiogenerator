@@ -1,7 +1,9 @@
 #include <iostream>
 #include "../pluginInterface.h"
 
-class testplugin : public mag::pluginInterface{
+using namespace mplug;
+
+class testplugin : public pluginInterface{
 public:
 	
     virtual const char *getInfo() const{
@@ -12,12 +14,12 @@ public:
 	}
 };
 
-extern "C" mag::pluginInterface *create(){
+extern "C" pluginInterface *create(){
 	testplugin *tp = new testplugin();
 	return tp;
 }
 
-extern "C" void destroy(mag::pluginInterface *interface){
+extern "C" void destroy(pluginInterface *interface){
 	delete interface;
 	return;
 }

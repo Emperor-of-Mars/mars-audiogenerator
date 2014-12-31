@@ -1,7 +1,7 @@
 /*
 **	Author:		Martin Schwarz
 **	Name:		pluginLoader.h
-**	Project:	mars-audiogenerator
+**	Project:	mars-pluginmanager
 **	Compile:	g++
 */
 
@@ -17,7 +17,7 @@
 	#define _DEBUG_LEVEL 2
 #endif // _DEBUG_LEVEL
 
-namespace mag{
+namespace mplug{
 
 
 class pluginLoader{
@@ -38,7 +38,7 @@ private:
 };
 
 
-} // mag
+} // mplug
 
 #endif // PLUGIN_LOADER
 

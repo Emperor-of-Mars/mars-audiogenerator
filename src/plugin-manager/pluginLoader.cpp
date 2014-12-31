@@ -1,13 +1,13 @@
 /*
 **	Author:		Martin Schwarz
 **	Name:		pluginLoader.cpp
-**	Project:	mars-audiogenerator
+**	Project:	mars-pluginmanager
 **	Compile:	g++
 */
 
 #include "pluginLoader.h"
 
-namespace mag{
+namespace mplug{
 
 
 pluginLoader::pluginLoader(const char *path){
@@ -113,7 +113,7 @@ int pluginLoader::destroy(pluginInterface *instance){
 }
 
 
-} // mag
+} // mplug
 
 
 
