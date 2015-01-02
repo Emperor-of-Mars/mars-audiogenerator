@@ -16,5 +16,9 @@ int main(){
     mag::sound s = mag::genSinus(44100, 500, 1000000000, 5000);
     s.writeToFile("sound.wav");
 
+    mplug::pluginManager plm("pluginconfig.conf");
+    std::cerr << plm.listPlugins();
+    std::cerr << plm.createInstance("res/plugins/plugintest.so")->getInfo() << std::endl;
+
     return 0;
 }

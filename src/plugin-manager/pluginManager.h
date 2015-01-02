@@ -29,7 +29,8 @@ public:
     int loadPlugin(const char *pluginPath);
 
     const char *listPlugins();
-    pluginInterface *getPlugin(const char *pluginName);
+    pluginInterface *createInstance(const char *pluginName);
+    int destroyInstance(const char *pluginName, pluginInterface *instance);
 
     int deletePlugin(const char *pluginName);
 

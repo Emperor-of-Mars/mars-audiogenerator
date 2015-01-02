@@ -29,11 +29,14 @@ public:
     pluginInterface *create();
     int destroy(pluginInterface *instance);
 
+    bool good();
+    const char *getName();
+
 private:
     void *mPlugin;
     create_t *mCreate;
     destroy_t *mDestroy;
-    const char *mName;
+    std::string mName;
     std::vector<pluginInterface *> mInstances;
 };
 

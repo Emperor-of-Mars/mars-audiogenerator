@@ -14,7 +14,6 @@ pluginLoader::pluginLoader(const char *path){
     mPlugin = NULL;
     mCreate = NULL;
     mDestroy = NULL;
-    mName = NULL;
     if(path != NULL) load(path);
 }
 
@@ -33,12 +32,9 @@ pluginLoader::~pluginLoader(){
 
     dlclose(mPlugin);
 
-    if(mName != NULL) delete [] mName;
-
     mPlugin = NULL;
     mCreate = NULL;
     mDestroy = NULL;
-    mName = NULL;
 }
 
 int pluginLoader::load(const char *path){
@@ -82,6 +78,9 @@ int pluginLoader::load(const char *path){
         return -2;
     }
     dlerror();
+
+    mName = path;
+
     return 0;
 }
 
@@ -105,13 +104,21 @@ int pluginLoader::destroy(pluginInterface *instance){
         return -1;
     }
     for(unsigned int i = 0; i < mInstances.size(); i++){
-        if(instance == mInstances[i]) mInstances.erase(mInstances.begin() + i);
+        if(instance == mInstances[i]) mInstances.erase(mInstances.begin() + i);	//use hashmap
     }
     mDestroy(instance);
     instance = NULL;
     return 0;
 }
 
+bool pluginLoader::good(){
+	if(mPlugin != NULL) return true;
+	return false;
+}
+
+const char *pluginLoader::getName(){
+	return mName.c_str();
+}
 
 } // mplug
 
