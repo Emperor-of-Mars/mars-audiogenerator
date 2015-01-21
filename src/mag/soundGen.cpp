@@ -17,13 +17,14 @@ soundData *genSound(const char *type, const char *values){
 soundData *genSinus(unsigned int sampleRate, float freq, unsigned int ampl, unsigned int len_ms){
     unsigned int numSamples = sampleRate * len_ms / 1000;
     soundData *s = new soundData;
-    s->mData.resize(numSamples);
-    for(unsigned int i = 0; i < numSamples; i ++){
+    s->mData.resize(numSamples * 2);
+    for(unsigned int i = 0; i < numSamples * 2; i += 2){
         s->mData[i] = sinf(freq * ((float)i / (float)sampleRate) * 2.f * M_PI);
+        s->mData[i + 1] = sinf(freq * ((float)i / (float)sampleRate) * 3.f * M_PI);
     }
     s->mNumSamples = numSamples;
     s->mSampleRate = sampleRate;
-    s->mChannels = 1;
+    s->mChannels = 2;
     return s;
 }
 

@@ -1,13 +1,13 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		writeWav.h
+**	Name:		audiofile.h
 **	Project:	mars-audiogenerator
 **	Compile:	g++
 */
 
 
-#ifndef MAG_WRITE_WAV
-#define MAG_WRITE_WAV
+#ifndef MAG_AUDIOFILE
+#define MAG_AUDIOFILE
 
 #include "include.h"
 #include "sound.h"
@@ -20,7 +20,8 @@
 namespace mag{
 
 int writeToFile(const char *file, sound *s);
+sound *readFile(const char *file);
 
 } // mag
 
-#endif // MAG_WRITE_WAV
+#endif // MAG_AUDIOFILE

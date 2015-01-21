@@ -13,7 +13,7 @@
 
 #include "sound.h"
 #include "soundGen.h"
-#include "wavWriter.h"
+#include "audiofile.h"
 #include "../plugin-manager/pluginManager.h"
 
 #ifndef _DEBUG_LEVEL

@@ -1,16 +1,16 @@
 # depslib dependency file v1.0
-1421870918 source:/home/mars/Projekte/mag/mars-audiogenerator/main.cpp
+1421873382 source:/home/mars/Projekte/mag/mars-audiogenerator/main.cpp
 	<iostream>
 	"main.h"
 
 1421870629 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/mag.cpp
 	"mag.h"
 
-1421860159 /home/mars/Projekte/mag/mars-audiogenerator/src/mag/mag.h
+1421872279 /home/mars/Projekte/mag/mars-audiogenerator/src/mag/mag.h
 	"include.h"
 	"sound.h"
 	"soundGen.h"
-	"wavWriter.h"
+	"audiofile.h"
 	"../plugin-manager/pluginManager.h"
 
 1421868074 /home/mars/Projekte/mag/mars-audiogenerator/src/mag/include.h
@@ -55,7 +55,7 @@
 1421870709 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/sound.cpp
 	"sound.h"
 
-1421870726 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/soundGen.cpp
+1421873589 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/soundGen.cpp
 	"soundGen.h"
 
 1421871288 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/wavWriter.cpp
@@ -110,4 +110,11 @@
 
 1421868684 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/soundData.cpp
 	"soundData.h"
+
+1421872523 /home/mars/Projekte/mag/mars-audiogenerator/src/mag/audiofile.h
+	"include.h"
+	"sound.h"
+
+1421873395 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/audiofile.cpp
+	"audiofile.h"
 
