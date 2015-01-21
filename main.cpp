@@ -14,7 +14,7 @@ int main(){
 
     cout << "Generating WAV" << endl;
     mag::sound s = mag::genSinus(44100, 500, 1000000000, 5000);
-    s.writeToFile("sound.wav");
+    mag::writeToFile("sound.wav", &s);
 
     mplug::pluginManager plm("pluginconfig.conf");
     std::cerr << plm.listPlugins();

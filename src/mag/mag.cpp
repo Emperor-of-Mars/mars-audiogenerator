@@ -10,12 +10,6 @@
 namespace mag{
 
 
-mag::mag(const char *pluginpath){
-}
-
-mag::~mag(){
-}
-
 
 }
 

@@ -19,7 +19,7 @@
 
 namespace mag{
 
-unsigned int writeToFile(const char* filename, void *data, unsigned int sampleBits, unsigned int numSamples, unsigned int sampleRate);
+int writeToFile(const char *file, sound *s);
 
 } // mag
 

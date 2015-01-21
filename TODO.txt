@@ -1,0 +1,5 @@
+
+TODO:
+	use libsndfile
+	use portaudio
+

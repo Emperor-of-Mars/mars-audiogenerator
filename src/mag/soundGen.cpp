@@ -23,8 +23,7 @@ soundData *genSinus(unsigned int sampleRate, float freq, unsigned int ampl, unsi
     }
     s->mNumSamples = numSamples;
     s->mSampleRate = sampleRate;
-    s->mFreq = freq;
-    s->mAmplitude = ampl;
+    s->mChannels = 1;
     return s;
 }
 

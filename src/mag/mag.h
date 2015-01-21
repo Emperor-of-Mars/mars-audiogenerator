@@ -22,11 +22,6 @@
 
 namespace mag{
 
-class mag{
-public:
-    mag(const char *pluginPath = NULL);
-    ~mag();
-};
 
 } // mag
 

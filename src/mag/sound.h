@@ -10,7 +10,7 @@
 #define MAG_SOUND
 
 #include "include.h"
-#include "wavWriter.h"
+#include "soundData.h"
 
 #ifndef _DEBUG_LEVEL
 	#define _DEBUG_LEVEL 2
@@ -18,37 +18,19 @@
 
 namespace mag{
 
-struct soundData{
-    soundData();
-    ~soundData();
-    std::vector<float> mData;
-    unsigned int mNumSamples;
-    unsigned int mSampleRate;
-    unsigned int mFreq;
-    unsigned int mAmplitude;
-};
-
 class sound{
 public:
     sound();
     sound(soundData *s);
-    sound(std::vector<float> data, unsigned int numSamples, unsigned int sampleRate, unsigned int freq, unsigned int amplitude);
-    sound(float *data, unsigned int numSamples, unsigned int sampleRate, unsigned int freq, unsigned int amplitude);
     ~sound();
 
-    int operator =(const sound *s);
-    int operator =(const soundData *s);
+    int operator =(sound *s);
+    int operator =(soundData *s);
 
-    int manipulate(const char* key, const char* value);
-
-    int writeToFile(const char* filename);
-
-    uint8_t *genRaw8();
-    uint16_t *genRaw16();
-    uint32_t *genRaw32();
+	soundData *getSoundData();
 
 private:
-    soundData mSoundData;
+    soundData *mSoundData;
 };
 
 } // mag
