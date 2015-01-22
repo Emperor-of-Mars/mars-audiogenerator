@@ -10,13 +10,13 @@
 namespace mag{
 
 
-int writeToFile(const char *file, sound *s){
+int writeToFile(const char *file, sound *s, int format){
 	SNDFILE* f = NULL;
 	SF_INFO info;
 
 	info.samplerate = s->getSoundData()->mSampleRate;
 	info.channels = s->getSoundData()->mChannels;
-	info.format = SF_FORMAT_WAV | SF_FORMAT_PCM_16;
+	info.format = format;
 
 	if(!(f = sf_open(file, SFM_WRITE, &info))){
 		#if _DEBUG_LEVEL >= 1

@@ -1,5 +1,6 @@
 bin
 obj
 mars-audiogenerator.layout
+mars-audiogenerator.depend
 .directory
 *.wav

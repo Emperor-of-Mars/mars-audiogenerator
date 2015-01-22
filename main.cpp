@@ -17,6 +17,7 @@ int main(){
     mag::writeToFile("sound.wav", &s);
 
     mag::sound *snd1 = mag::readFile("sound.wav");
+    if(snd1 == NULL) return 1;
     mag::writeToFile("newsound.wav" ,snd1);
 
     mplug::pluginManager plm("pluginconfig.conf");

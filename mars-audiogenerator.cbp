@@ -30,23 +30,27 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-std=c++11" />
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Linker>
 			<Add option="-ldl" />
+			<Add option="-lsndfile" />
 		</Linker>
 		<Unit filename="main.cpp" />
 		<Unit filename="main.h" />
+		<Unit filename="src/mag/audiofile.cpp" />
+		<Unit filename="src/mag/audiofile.h" />
 		<Unit filename="src/mag/include.h" />
 		<Unit filename="src/mag/mag.cpp" />
 		<Unit filename="src/mag/mag.h" />
 		<Unit filename="src/mag/sound.cpp" />
 		<Unit filename="src/mag/sound.h" />
+		<Unit filename="src/mag/soundData.cpp" />
+		<Unit filename="src/mag/soundData.h" />
 		<Unit filename="src/mag/soundGen.cpp" />
 		<Unit filename="src/mag/soundGen.h" />
-		<Unit filename="src/mag/wavWriter.cpp" />
-		<Unit filename="src/mag/wavWriter.h" />
 		<Unit filename="src/plugin-manager/include.h" />
 		<Unit filename="src/plugin-manager/pluginInterface.h" />
 		<Unit filename="src/plugin-manager/pluginLoader.cpp" />
