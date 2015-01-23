@@ -13,15 +13,13 @@ int main(){
     plug.destroy(pli);*/
 
     cout << "Generating WAV" << endl;
-    mag::sound s = mag::genSinus(44100, 500, 1000000000, 5000);
+    mag::sound s = mag::genSinus(44100, 500, 1000000000, 2000);
     mag::writeToFile("sound.wav", s.getSoundData());
-
-    mag::playAudio(s.getSoundData());
 
     mag::sound snd1 = mag::readFile("sound.wav");
     mag::writeToFile("newsound.wav", snd1.getSoundData());
 
-    //mag::playAudio(snd1.getSoundData());
+    mag::playAudio(snd1.getSoundData());
 
     /*mplug::pluginManager plm("pluginconfig.conf");
     std::cerr << plm.listPlugins();

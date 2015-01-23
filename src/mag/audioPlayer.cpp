@@ -24,8 +24,8 @@ int audioPlayerCallback(const void *inputBuffer, void *outputBuffer,
 
 	if(frameCount > data->mNumSamples) realCount = data->mNumSamples;
 
-	for(unsigned int i = 0; i < realCount; i++){
-        out[i] = (*data->mData)[data->mPosition + i];
+	for(unsigned int i = 0; i < realCount * data->mChannels; i++){
+        out[i] = (*data->mData)[data->mPosition * data->mChannels + i];
     }
 
 	data->mPosition += realCount;
@@ -37,14 +37,11 @@ int audioPlayerCallback(const void *inputBuffer, void *outputBuffer,
 int playAudio(soundData *data){
 	if(data == NULL) return -1;
 
-	std::cerr << "playaudio" << std::endl;
-
 	PaError err;
 	if((err = Pa_Initialize()) != paNoError){
 		std::cerr << "pa could not initialize: " << Pa_GetErrorText(err) << std::endl;
 		return 1;
 	}
-
 
     audioStream st;
     st.mData = &data->mData;
@@ -53,7 +50,7 @@ int playAudio(soundData *data){
     st.mPosition = 0;
 
     PaStream *stream = NULL;
-    err = Pa_OpenDefaultStream(&stream, 0, data->mChannels, paFloat32, data->mSampleRate, 256, audioPlayerCallback, &st);
+    err = Pa_OpenDefaultStream(&stream, 0, data->mChannels, paFloat32, data->mSampleRate, 512, audioPlayerCallback, &st);
     if(err != paNoError){
 		std::cerr << "pa could not open stream: " << Pa_GetErrorText(err) << std::endl;
 		return 1;
@@ -64,7 +61,7 @@ int playAudio(soundData *data){
 		return 1;
     }
 
-    Pa_Sleep(5 * 1000);
+    Pa_Sleep(2 * 1000);
 
     if((err = Pa_StopStream(stream)) != paNoError){
 		std::cerr << "pa could not stop stream: " << Pa_GetErrorText(err) << std::endl;
