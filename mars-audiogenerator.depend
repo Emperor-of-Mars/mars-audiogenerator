@@ -1,16 +1,17 @@
 # depslib dependency file v1.0
-1421967194 source:/home/mars/Projekte/mag/mars-audiogenerator/main.cpp
+1422044277 source:/home/mars/Projekte/mag/mars-audiogenerator/main.cpp
 	<iostream>
 	"main.h"
 
 1421870629 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/mag.cpp
 	"mag.h"
 
-1421964225 /home/mars/Projekte/mag/mars-audiogenerator/src/mag/mag.h
+1422035661 /home/mars/Projekte/mag/mars-audiogenerator/src/mag/mag.h
 	"include.h"
 	"sound.h"
 	"soundGen.h"
 	"audioFile.h"
+	"audioPlayer.h"
 	"../plugin-manager/pluginManager.h"
 
 1421965024 /home/mars/Projekte/mag/mars-audiogenerator/src/mag/include.h
@@ -53,10 +54,10 @@
 1419880194 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/pluginManager.cpp
 	"pluginManager.h"
 
-1421967263 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/sound.cpp
+1421967524 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/sound.cpp
 	"sound.h"
 
-1421873589 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/soundGen.cpp
+1422044321 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/soundGen.cpp
 	"soundGen.h"
 
 1421871288 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/wavWriter.cpp
@@ -109,7 +110,7 @@
 1421966779 /home/mars/Projekte/mag/mars-audiogenerator/src/mag/soundData.h
 	"include.h"
 
-1421967161 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/soundData.cpp
+1421967338 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/soundData.cpp
 	"soundData.h"
 
 1421876016 /home/mars/Projekte/mag/mars-audiogenerator/src/mag/audiofile.h
@@ -126,10 +127,10 @@
 1421967013 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/audioFile.cpp
 	"audioFile.h"
 
-1421964442 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/audioPlayer.cpp
+1422044989 source:/home/mars/Projekte/mag/mars-audiogenerator/src/mag/audioPlayer.cpp
 	"audioPlayer.h"
 
-1421964411 /home/mars/Projekte/mag/mars-audiogenerator/src/mag/audioPlayer.h
+1422037806 /home/mars/Projekte/mag/mars-audiogenerator/src/mag/audioPlayer.h
 	"include.h"
 	"soundData.h"
 

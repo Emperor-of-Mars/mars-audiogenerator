@@ -19,6 +19,21 @@
 namespace mag{
 
 
+struct audioStream{
+	unsigned long int mPosition;
+	unsigned long int mNumSamples;
+    unsigned short mChannels;
+	float *mData;
+};
+
+int audioPlayerCallback(const void *inputBuffer, void *outputBuffer,
+								unsigned long framesPerBuffer,
+                          		const PaStreamCallbackTimeInfo* timeInfo,
+						  		PaStreamCallbackFlags statusFlags,
+								void *userData);
+
+int playAudio(soundData *data);
+
 
 } // mag
 

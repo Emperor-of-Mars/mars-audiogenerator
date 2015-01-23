@@ -37,6 +37,7 @@
 		<Linker>
 			<Add option="-ldl" />
 			<Add option="-lsndfile" />
+			<Add option="-lportaudio" />
 		</Linker>
 		<Unit filename="main.cpp" />
 		<Unit filename="main.h" />

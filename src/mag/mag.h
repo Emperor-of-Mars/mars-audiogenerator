@@ -14,6 +14,8 @@
 #include "sound.h"
 #include "soundGen.h"
 #include "audioFile.h"
+#include "audioPlayer.h"
+
 #include "../plugin-manager/pluginManager.h"
 
 #ifndef _DEBUG_LEVEL

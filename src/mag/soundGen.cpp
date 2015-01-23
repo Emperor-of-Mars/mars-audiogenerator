@@ -19,8 +19,9 @@ soundData *genSinus(unsigned int sampleRate, float freq, unsigned int ampl, unsi
     soundData *s = new soundData;
     s->mData.resize(numSamples * 2);
     for(unsigned int i = 0; i < numSamples * 2; i += 2){
-        s->mData[i] = sinf(freq * ((float)i / (float)sampleRate) * 2.f * M_PI);
-        s->mData[i + 1] = sinf(freq * ((float)i / (float)sampleRate) * 3.f * M_PI);
+        s->mData[i] = sinf(freq * ((float)i / (float)sampleRate) * 1.5f * M_PI);
+        s->mData[i + 1] = sinf(freq * ((float)i / (float)sampleRate) * 2.5f * M_PI);
+        //s->mData[i] = 0;
     }
     s->mNumSamples = numSamples;
     s->mSampleRate = sampleRate;
