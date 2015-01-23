@@ -64,8 +64,6 @@
 		<Unit filename="src/ui/ncurses/ui-ncurses.h" />
 		<Unit filename="src/ui/qt/ui-qt.cpp" />
 		<Unit filename="src/ui/qt/ui-qt.h" />
-		<Unit filename="src/ui/terminal/ui-terminal.cpp" />
-		<Unit filename="src/ui/terminal/ui-terminal.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

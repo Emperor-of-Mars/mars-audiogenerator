@@ -24,18 +24,9 @@ int audioPlayerCallback(const void *inputBuffer, void *outputBuffer,
 
 	if(frameCount > data->mNumSamples) realCount = data->mNumSamples;
 
-	//memccpy(out, &(data->mData[data->mPosition]), realCount, sizeof(float) * data->mChannels);
-
 	for(unsigned int i = 0; i < realCount; i++){
-        out[i] = data->mData[data->mPosition + i];
+        out[i] = (*data->mData)[data->mPosition + i];
     }
-
-/*
-    for(unsigned int i = 0; i < realCount * 2; i += 2){
-        out[i] = sinf(500 * ((float)i / (float)44100) * 1.f * M_PI) * 0.6;
-        out[i + 1] = sinf(500 * ((float)i / (float)44100) * 1.5f * M_PI) * 0.6;
-    }
-*/
 
 	data->mPosition += realCount;
 	data->mNumSamples -= realCount;
@@ -56,13 +47,13 @@ int playAudio(soundData *data){
 
 
     audioStream st;
-    st.mData = &(data->mData[0]);
+    st.mData = &data->mData;
     st.mNumSamples = data->mNumSamples;
     st.mChannels = data->mChannels;
     st.mPosition = 0;
 
     PaStream *stream = NULL;
-    err = Pa_OpenDefaultStream(&stream, 0, data->mChannels, paFloat32, data->mSampleRate, 512, audioPlayerCallback, &st);
+    err = Pa_OpenDefaultStream(&stream, 0, data->mChannels, paFloat32, data->mSampleRate, 256, audioPlayerCallback, &st);
     if(err != paNoError){
 		std::cerr << "pa could not open stream: " << Pa_GetErrorText(err) << std::endl;
 		return 1;
