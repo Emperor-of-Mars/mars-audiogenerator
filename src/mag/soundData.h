@@ -20,9 +20,11 @@ namespace mag{
 struct soundData{
     soundData();
     ~soundData();
+
     std::vector<float> mData;
+
     unsigned int mSampleRate;
-    unsigned long long int mNumSamples;
+    unsigned long int mNumSamples;
     unsigned short mChannels;
 };
 

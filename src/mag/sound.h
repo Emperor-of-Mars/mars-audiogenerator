@@ -31,6 +31,9 @@ public:
 
 private:
     soundData *mSoundData;
+    unsigned long int mPosition;
+    unsigned long int mBegin;
+    unsigned long int mEnd;
 };
 
 } // mag

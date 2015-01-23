@@ -1,6 +1,6 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		audiofile.h
+**	Name:		audioFile.h
 **	Project:	mars-audiogenerator
 **	Compile:	g++
 */
@@ -19,8 +19,8 @@
 
 namespace mag{
 
-int writeToFile(const char *file, sound *s, int format = SF_FORMAT_WAV | SF_FORMAT_PCM_16);
-sound *readFile(const char *file);
+int writeToFile(const char *file, soundData *s, int format = SF_FORMAT_WAV | SF_FORMAT_PCM_16);
+soundData *readFile(const char *file);
 
 } // mag
 

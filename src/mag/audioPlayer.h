@@ -1,20 +1,16 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		mag.h
+**	Name:		audioPlayer.h
 **	Project:	mars-audiogenerator
 **	Compile:	g++
 */
 
 
-#ifndef MAG
-#define MAG
+#ifndef MAG_AUDIOPLAYER
+#define MAG_AUDIOPLAYER
 
 #include "include.h"
-
-#include "sound.h"
-#include "soundGen.h"
-#include "audioFile.h"
-#include "../plugin-manager/pluginManager.h"
+#include "soundData.h"
 
 #ifndef _DEBUG_LEVEL
 	#define _DEBUG_LEVEL 2
@@ -23,6 +19,12 @@
 namespace mag{
 
 
+
 } // mag
 
-#endif // MAG
+#endif // MAG_AUDIOPLAYER
+
+
+
+
+

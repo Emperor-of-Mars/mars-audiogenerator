@@ -40,8 +40,10 @@
 		</Linker>
 		<Unit filename="main.cpp" />
 		<Unit filename="main.h" />
-		<Unit filename="src/mag/audiofile.cpp" />
-		<Unit filename="src/mag/audiofile.h" />
+		<Unit filename="src/mag/audioFile.cpp" />
+		<Unit filename="src/mag/audioFile.h" />
+		<Unit filename="src/mag/audioPlayer.cpp" />
+		<Unit filename="src/mag/audioPlayer.h" />
 		<Unit filename="src/mag/include.h" />
 		<Unit filename="src/mag/mag.cpp" />
 		<Unit filename="src/mag/mag.h" />
