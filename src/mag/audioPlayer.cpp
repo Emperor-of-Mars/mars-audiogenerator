@@ -34,7 +34,7 @@ int audioPlayerCallback(const void *inputBuffer, void *outputBuffer,
 	return paContinue;
 }
 
-int playAudio(soundData *data){
+int playAudio(audioData *data){
 	if(data == NULL) return -1;
 
 	PaError err;

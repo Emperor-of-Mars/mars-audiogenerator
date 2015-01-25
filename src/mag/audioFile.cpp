@@ -10,9 +10,11 @@
 namespace mag{
 
 
-int writeToFile(const char *file, soundData *s, int format){
+int writeToFile(const char *file, audioData *s, int format){
 	SNDFILE* f = NULL;
 	SF_INFO info;
+
+	if(s == NULL) return -1;
 
 	info.samplerate = s->mSampleRate;
 	info.channels = s->mChannels;
@@ -45,7 +47,7 @@ int writeToFile(const char *file, soundData *s, int format){
     return 0;
 }
 
-soundData *readFile(const char *file){
+audioData *readFile(const char *file){
 	SNDFILE* f = NULL;
 	SF_INFO info;
 
@@ -57,7 +59,7 @@ soundData *readFile(const char *file){
 		return NULL;
 	}
 
-	soundData *s = new soundData;
+	audioData *s = new audioData;
 	s->mData.resize(info.frames * info.channels);
 	s->mNumSamples = info.frames;
 	s->mSampleRate = info.samplerate;
@@ -68,6 +70,7 @@ soundData *readFile(const char *file){
 			std::cerr << "unable to read from file!" << std::endl;
 		#endif // _DEBUG_LEVEL
 		sf_close(f);
+		delete s;
 		return NULL;
 	}
 

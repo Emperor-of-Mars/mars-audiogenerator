@@ -1,26 +1,28 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		soundData.cpp
+**	Name:		audioData.cpp
 **	Project:	mars-audiogenerator
 **	Compile:	g++
 */
 
-#include "soundData.h"
+#include "audioData.h"
 
 namespace mag{
 
 
-soundData::soundData(){
+audioData::audioData(){
     mSampleRate = 0;
     mNumSamples = 0;
     mChannels = 0;
+    mPos = 0;
 }
 
-soundData::~soundData(){
+audioData::~audioData(){
     mData.empty();
     mSampleRate = 0;
     mNumSamples = 0;
     mChannels = 0;
+    mPos = 0;
 }
 
 

@@ -11,32 +11,47 @@ namespace mag{
 
 
 sound::sound(){
-	mSoundData = NULL;
+	mAudioData = NULL;
+	mStatus = 0;
 }
 
-sound::sound(soundData *s){
-    mSoundData = s;
+sound::sound(const char *file){
+	mAudioData = mag::readFile(file);
+	mStatus = 0;
+}
+
+sound::sound(audioData *s){
+    mAudioData = s;
+	mStatus = 0;
 }
 
 sound::~sound(){
-	if(mSoundData != NULL) delete mSoundData;
+	if(mAudioData != NULL) delete mAudioData;
 }
 
-int sound::operator =(sound *s){
+int sound::operator =(audioData *s){
     if(s == 0) return -1;
-    *mSoundData = *(s->mSoundData);
+	if(mAudioData != NULL) delete mAudioData;
+    mAudioData = s;
     return 0;
 }
 
-int sound::operator =(soundData *s){
-    if(s == 0) return -1;
-	delete mSoundData;
-    mSoundData = s;
-    return 0;
+int sound::readFile(const char *file){
+	mAudioData = mag::readFile(file);
+	if(mAudioData == NULL) return -1;
+	return 0;
 }
 
-soundData *sound::getSoundData(){
-	return mSoundData;
+int sound::writeToFile(const char *file, int format){
+	return mag::writeToFile(file, mAudioData, format);
+}
+
+int sound::play(){
+	return mag::playAudio(mAudioData);
+}
+
+audioData *sound::getAudioData(){
+	return mAudioData;
 }
 
 

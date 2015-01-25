@@ -19,8 +19,8 @@
 
 namespace mag{
 
-int writeToFile(const char *file, soundData *s, int format = SF_FORMAT_WAV | SF_FORMAT_PCM_16);
-soundData *readFile(const char *file);
+int writeToFile(const char *file, audioData *s, int format = SF_FORMAT_WAV | SF_FORMAT_PCM_16);
+audioData *readFile(const char *file);
 
 } // mag
 

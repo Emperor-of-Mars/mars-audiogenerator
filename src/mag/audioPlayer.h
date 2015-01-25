@@ -10,7 +10,7 @@
 #define MAG_AUDIOPLAYER
 
 #include "include.h"
-#include "soundData.h"
+#include "audioData.h"
 
 #ifndef _DEBUG_LEVEL
 	#define _DEBUG_LEVEL 2
@@ -32,7 +32,7 @@ int audioPlayerCallback(const void *inputBuffer, void *outputBuffer,
 						  		PaStreamCallbackFlags statusFlags,
 								void *userData);
 
-int playAudio(soundData *data);
+int playAudio(audioData *data);
 
 
 } // mag

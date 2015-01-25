@@ -1,22 +1,22 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		sound.cpp
+**	Name:		audioGen.cpp
 **	Project:	mars-audiogenerator
 **	Compile:	g++
 */
 
-#include "soundGen.h"
+#include "audioGen.h"
 
 namespace mag{
 
 
-soundData *genSound(const char *type, const char *values){
+audioData *genSound(const char *type, const char *values){
     return NULL;
 }
 
-soundData *genSinus(unsigned int sampleRate, float freq, unsigned int ampl, unsigned int len_ms){
+audioData *genSinus(unsigned int sampleRate, float freq, unsigned int ampl, unsigned int len_ms){
     unsigned int numSamples = sampleRate * len_ms / 1000;
-    soundData *s = new soundData;
+    audioData *s = new audioData;
     s->mData.resize(numSamples * 2);
     for(unsigned int i = 0; i < numSamples * 2; i += 2){
         s->mData[i] = sinf(freq * ((float)i / (float)sampleRate) * 1.5f * M_PI);

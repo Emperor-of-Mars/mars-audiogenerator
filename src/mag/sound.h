@@ -10,7 +10,9 @@
 #define MAG_SOUND
 
 #include "include.h"
-#include "soundData.h"
+#include "audioData.h"
+#include "audioFile.h"
+#include "audioPlayer.h"
 
 #ifndef _DEBUG_LEVEL
 	#define _DEBUG_LEVEL 2
@@ -21,19 +23,31 @@ namespace mag{
 class sound{
 public:
     sound();
-    sound(soundData *s);
+    sound(const char *file);
+    sound(audioData *s);
     ~sound();
 
-    int operator =(sound *s);
-    int operator =(soundData *s);
+    int operator =(audioData *s);
 
-	soundData *getSoundData();
+	int readFile(const char *file);
+	int writeToFile(const char *file, int format = SF_FORMAT_WAV | SF_FORMAT_PCM_16);
+
+	int play();
+
+	audioData *getAudioData();
 
 private:
-    soundData *mSoundData;
-    unsigned long int mPosition;
-    unsigned long int mBegin;
-    unsigned long int mEnd;
+    audioData *mAudioData;
+/*
+    std::vector<float> mData;
+
+    unsigned int mSampleRate;
+    unsigned long int mNumSamples;
+    unsigned short mChannels;
+
+    unsigned long int mPos;
+*/
+    int mStatus;
 };
 
 } // mag

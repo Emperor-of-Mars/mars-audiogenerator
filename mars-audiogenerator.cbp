@@ -41,8 +41,12 @@
 		</Linker>
 		<Unit filename="main.cpp" />
 		<Unit filename="main.h" />
+		<Unit filename="src/mag/audioData.cpp" />
+		<Unit filename="src/mag/audioData.h" />
 		<Unit filename="src/mag/audioFile.cpp" />
 		<Unit filename="src/mag/audioFile.h" />
+		<Unit filename="src/mag/audioGen.cpp" />
+		<Unit filename="src/mag/audioGen.h" />
 		<Unit filename="src/mag/audioPlayer.cpp" />
 		<Unit filename="src/mag/audioPlayer.h" />
 		<Unit filename="src/mag/include.h" />
@@ -50,10 +54,6 @@
 		<Unit filename="src/mag/mag.h" />
 		<Unit filename="src/mag/sound.cpp" />
 		<Unit filename="src/mag/sound.h" />
-		<Unit filename="src/mag/soundData.cpp" />
-		<Unit filename="src/mag/soundData.h" />
-		<Unit filename="src/mag/soundGen.cpp" />
-		<Unit filename="src/mag/soundGen.h" />
 		<Unit filename="src/plugin-manager/include.h" />
 		<Unit filename="src/plugin-manager/pluginInterface.h" />
 		<Unit filename="src/plugin-manager/pluginLoader.cpp" />

@@ -12,7 +12,7 @@
 #include "include.h"
 
 #include "sound.h"
-#include "soundGen.h"
+#include "audioGen.h"
 #include "audioFile.h"
 #include "audioPlayer.h"
 

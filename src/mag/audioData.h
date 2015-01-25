@@ -1,13 +1,13 @@
 /*
 **	Author:		Martin Schwarz
-**	Name:		soundData.h
+**	Name:		audioData.h
 **	Project:	mars-audiogenerator
 **	Compile:	g++
 */
 
 
-#ifndef MAG_SOUNDDATA
-#define MAG_SOUNDDATA
+#ifndef MAG_AUDIODATA
+#define MAG_AUDIODATA
 
 #include "include.h"
 
@@ -17,20 +17,22 @@
 
 namespace mag{
 
-struct soundData{
-    soundData();
-    ~soundData();
+struct audioData{
+    audioData();
+    ~audioData();
 
     std::vector<float> mData;
 
     unsigned int mSampleRate;
     unsigned long int mNumSamples;
     unsigned short mChannels;
+
+    unsigned long int mPos;
 };
 
 } // mag
 
-#endif // MAG_SOUNDDATA
+#endif // MAG_AUDIODATA
 
 
 
