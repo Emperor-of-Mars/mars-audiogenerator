@@ -10,11 +10,11 @@
 namespace mag{
 
 
-audioData *genSound(const char *type, const char *values){
+std::shared_ptr<audioData> genSound(const char *type, const char *values){
     return NULL;
 }
 
-audioData *genSinus(unsigned int sampleRate, float freq, unsigned int ampl, unsigned int len_ms){
+std::shared_ptr<audioData> genSinus(unsigned int sampleRate, float freq, unsigned int ampl, unsigned int len_ms){
     unsigned int numSamples = sampleRate * len_ms / 1000;
     audioData *s = new audioData;
     s->mData.resize(numSamples * 2);
@@ -26,7 +26,8 @@ audioData *genSinus(unsigned int sampleRate, float freq, unsigned int ampl, unsi
     s->mNumSamples = numSamples;
     s->mSampleRate = sampleRate;
     s->mChannels = 2;
-    return s;
+    std::shared_ptr<audioData> sp(s);
+    return sp;
 }
 
 } // mag

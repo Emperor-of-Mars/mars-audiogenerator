@@ -11,29 +11,34 @@ namespace mag{
 
 
 sound::sound(){
-	mAudioData = NULL;
+	mResult.reset(new audioData);
 	mStatus = 0;
 }
 
 sound::sound(const char *file){
 	mAudioData = mag::readFile(file);
+	mResult.reset(new audioData);
 	mStatus = 0;
 }
 
-sound::sound(audioData *s){
-    mAudioData = s;
+sound::sound(std::shared_ptr<audioData> data){
+    mAudioData = data;
+	mResult.reset(new audioData);
 	mStatus = 0;
 }
 
 sound::~sound(){
-	if(mAudioData != NULL) delete mAudioData;
 }
 
-int sound::operator =(audioData *s){
-    if(s == 0) return -1;
-	if(mAudioData != NULL) delete mAudioData;
-    mAudioData = s;
+int sound::operator =(std::shared_ptr<audioData> data){
+    if(data == NULL) return -1;
+    mAudioData = data;
     return 0;
+}
+
+int sound::writeFile(const char *file, int format){
+	render();
+	return mag::writeFile(file, mResult, format);
 }
 
 int sound::readFile(const char *file){
@@ -42,18 +47,20 @@ int sound::readFile(const char *file){
 	return 0;
 }
 
-int sound::writeToFile(const char *file, int format){
-	return mag::writeToFile(file, mAudioData, format);
-}
-
-int sound::play(){
-	return mag::playAudio(mAudioData);
-}
-
-audioData *sound::getAudioData(){
+std::shared_ptr<audioData> sound::getAudioData(){
 	return mAudioData;
 }
 
+int sound::play(){
+	render();
+	return mag::playAudio(mResult.get());
+}
+
+int sound::render(){
+	if(mAudioData == NULL) return -1;
+	*mResult = *mAudioData;
+	return 0;
+}
 
 } // mag
 

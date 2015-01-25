@@ -20,8 +20,8 @@
 
 namespace mag{
 
-audioData *genSound(const char *type, const char *values);
-audioData *genSinus(unsigned int sampleRate, float freq, unsigned int ampl, unsigned int len_ms);
+std::shared_ptr<audioData> genSound(const char *type, const char *values);
+std::shared_ptr<audioData> genSinus(unsigned int sampleRate, float freq, unsigned int ampl, unsigned int len_ms);
 
 } // mag
 

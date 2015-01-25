@@ -10,7 +10,7 @@
 #define MAG_AUDIOFILE
 
 #include "include.h"
-#include "sound.h"
+#include "audioData.h"
 
 
 #ifndef _DEBUG_LEVEL
@@ -19,8 +19,8 @@
 
 namespace mag{
 
-int writeToFile(const char *file, audioData *s, int format = SF_FORMAT_WAV | SF_FORMAT_PCM_16);
-audioData *readFile(const char *file);
+int writeFile(const char *file, std::shared_ptr<audioData> data, int format = SF_FORMAT_WAV | SF_FORMAT_PCM_16);
+std::shared_ptr<audioData> readFile(const char *file);
 
 } // mag
 

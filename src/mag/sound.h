@@ -10,9 +10,8 @@
 #define MAG_SOUND
 
 #include "include.h"
-#include "audioData.h"
-#include "audioFile.h"
-#include "audioPlayer.h"
+#include "audioStructure.h"
+#include "audioRepository.h"
 
 #ifndef _DEBUG_LEVEL
 	#define _DEBUG_LEVEL 2
@@ -20,34 +19,28 @@
 
 namespace mag{
 
-class sound{
+class sound : public audioStructure{
 public:
     sound();
     sound(const char *file);
-    sound(audioData *s);
+    sound(std::shared_ptr<audioData> data);
     ~sound();
 
-    int operator =(audioData *s);
+    int operator =(std::shared_ptr<audioData> data);
 
+	virtual int writeFile(const char *file, int format = SF_FORMAT_WAV | SF_FORMAT_PCM_16);
 	int readFile(const char *file);
-	int writeToFile(const char *file, int format = SF_FORMAT_WAV | SF_FORMAT_PCM_16);
 
-	int play();
+	virtual int play();
 
-	audioData *getAudioData();
+	std::shared_ptr<audioData> getAudioData();
 
 private:
-    audioData *mAudioData;
-/*
-    std::vector<float> mData;
+	virtual int render();
 
-    unsigned int mSampleRate;
-    unsigned long int mNumSamples;
-    unsigned short mChannels;
-
-    unsigned long int mPos;
-*/
-    int mStatus;
+    std::shared_ptr<audioData> mAudioData;
+    static audioRepository *mRepo;
+    //std::vector<audioModifier> mModifier;
 };
 
 } // mag

@@ -19,7 +19,13 @@ namespace mag{
 
 struct audioData{
     audioData();
+    audioData(void **addressStructure);
     ~audioData();
+
+    int operator =(audioData *data);
+
+    void **toAddressStructure();
+    int fromAddressStructure(void **addressStructure);
 
     std::vector<float> mData;
 
