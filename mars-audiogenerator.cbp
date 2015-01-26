@@ -49,6 +49,12 @@
 		<Unit filename="src/mag/audioGen.h" />
 		<Unit filename="src/mag/audioPlayer.cpp" />
 		<Unit filename="src/mag/audioPlayer.h" />
+		<Unit filename="src/mag/audioRepository.cpp" />
+		<Unit filename="src/mag/audioRepository.h" />
+		<Unit filename="src/mag/audioStructure.cpp" />
+		<Unit filename="src/mag/audioStructure.h" />
+		<Unit filename="src/mag/composition.cpp" />
+		<Unit filename="src/mag/composition.h" />
 		<Unit filename="src/mag/include.h" />
 		<Unit filename="src/mag/mag.cpp" />
 		<Unit filename="src/mag/mag.h" />
