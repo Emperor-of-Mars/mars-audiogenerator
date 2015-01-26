@@ -1,3 +1,4 @@
 g++ -fpic -shared -o testplugin.so testplugin.cpp
 
-g++ -fpic -shared -o sampleplugin.so samplerate.cpp && cp sampleplugin.so ../../../res/plugins/sampleplugin.so
+g++ -fpic -shared -o sampleplugin.so samplerate.cpp ../audioData.cpp && cp sampleplugin.so ../../../res/plugins/sampleplugin.so         
+
