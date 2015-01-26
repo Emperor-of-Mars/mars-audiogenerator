@@ -14,7 +14,7 @@ std::shared_ptr<audioData> genSound(const char *type, const char *values){
     return NULL;
 }
 
-std::shared_ptr<audioData> genSinus(unsigned int sampleRate, float freq, unsigned int ampl, unsigned int len_ms){
+std::shared_ptr<audioData> genSinus(unsigned int sampleRate, float freq, unsigned int len_ms){
     unsigned int numSamples = sampleRate * len_ms / 1000;
     audioData *s = new audioData;
     s->mData.resize(numSamples * 2);

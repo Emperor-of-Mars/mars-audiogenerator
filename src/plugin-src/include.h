@@ -1,25 +1,30 @@
 /*
 **	Author:		Martin Schwarz
 **	Name:		include.h
-**	Project:	mars-pluginmanager
+**	Project:	mars-audiogenerator
 **	Compile:	g++
 */
 
 
-#ifndef MPLUG_INCLUDE
-#define MPLUG_INCLUDE
+#ifndef MAG_INCLUDE
+#define MAG_INCLUDE
 
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <vector>
 #include <string>
+#include <memory>
 #include <string.h>
 #include <cmath>
 #include <fstream>
+
+#include <sndfile.h>
+
+#include <portaudio.h>
 
 #ifndef _DEBUG_LEVEL
 	#define _DEBUG_LEVEL 2
 #endif // _DEBUG_LEVEL
 
-#endif // MPLUG_INCLUDE
+#endif // MAG_INCLUDE

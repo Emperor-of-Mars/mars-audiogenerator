@@ -47,13 +47,13 @@ int sound::readFile(const char *file){
 	return 0;
 }
 
-std::shared_ptr<audioData> sound::getAudioData(){
-	return mAudioData;
-}
-
 int sound::play(){
 	render();
 	return mag::playAudio(mResult.get());
+}
+
+std::shared_ptr<audioData> sound::getAudioData(){
+	return mAudioData;
 }
 
 int sound::render(){
