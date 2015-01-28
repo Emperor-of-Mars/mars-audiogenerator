@@ -13,12 +13,17 @@
 #include "audioData.h"
 #include "audioFile.h"
 #include "audioPlayer.h"
+#include "modifier.h"
 
 #ifndef _DEBUG_LEVEL
 	#define _DEBUG_LEVEL 2
 #endif // _DEBUG_LEVEL
 
 namespace mag{
+
+enum audioStatus{
+	audioRenderCurrent = 0b00000001,
+};
 
 class audioStructure{
 public:
@@ -37,6 +42,7 @@ protected:
     std::shared_ptr<audioData> mResult;
     int mStatus;
 };
+
 
 } // mag
 

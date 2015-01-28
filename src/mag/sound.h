@@ -11,7 +11,6 @@
 
 #include "include.h"
 #include "audioStructure.h"
-#include "modifier.h"
 #include "audioRepository.h"
 
 #ifndef _DEBUG_LEVEL
@@ -33,8 +32,11 @@ public:
 	virtual int writeFile(const char *file, int format = SF_FORMAT_WAV | SF_FORMAT_PCM_16);
 	int readFile(const char *file);
 
-	bool addModifier(); //implement these two
-	void removeModifier();
+	bool good();
+
+	bool addModifier(const char *name, mplug::pluginManager manager = gPlugManager);
+	void removeModifier(const char *name);
+	const char *listModifiers();
 
 	virtual int play();
 

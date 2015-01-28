@@ -14,6 +14,8 @@ int main(){
 
     mag::sound snd("sound.wav");
 
+	if(!snd.good()) return 0;
+
 	void** data = snd.getAudioData()->toAddressStructure();
 	plm.createInstance("res/plugins/sampleplugin.so")->command("samplerate:25000;", &data, 1000);
 

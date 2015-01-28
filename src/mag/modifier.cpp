@@ -60,16 +60,33 @@ bool modifier::getActive(){
 	return mActive;
 }
 
-bool setArgument(const char *argument){
+const char *modifier::getName(){
+	return mName.c_str();
+}
+
+const char *modifier::getInfo(){
+	return mInfo.c_str();
+}
+
+bool modifier::setArgument(const char *argument){
+	std::string tmp(argument);
+	if(tmp[tmp.size() - 1] != ';') return -1;
+	else{
+		mArguments.append(tmp);
+	}
 	return 0;
 }
 
-const char *getArgumentList(){
-	return NULL;
+const char *modifier::getArgumentList(){
+	return mArguments.c_str();
 }
 
 std::shared_ptr<audioData> modifier::render(std::shared_ptr<audioData> ad){
 	return NULL;
+}
+
+int modifier::calculate(void *data, unsigned int lenData){
+	return mInterface->command(mArguments.c_str(), data, lenData);
 }
 
 

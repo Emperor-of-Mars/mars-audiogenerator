@@ -31,10 +31,14 @@ public:
 	void activate(bool activate);
 	bool getActive();
 
+	const char *getName();
+	const char *getInfo();
+
 	bool setArgument(const char *argument);
 	const char *getArgumentList();
 
 	std::shared_ptr<audioData> render(std::shared_ptr<audioData> ad);
+	int calculate(void *data, unsigned int lenData);
 
 private:
 	mplug::pluginInterface *mInterface;
@@ -42,6 +46,7 @@ private:
 	bool mActive;
 	std::string mInfo;
 	std::string mName;
+	std::string mArguments;
 };
 
 
