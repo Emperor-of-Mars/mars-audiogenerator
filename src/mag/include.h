@@ -20,8 +20,9 @@
 #include <fstream>
 
 #include <sndfile.h>
-
 #include <portaudio.h>
+
+#include "../plugin-manager/pluginManager.h"
 
 #ifndef _DEBUG_LEVEL
 	#define _DEBUG_LEVEL 2

@@ -16,8 +16,6 @@
 #include "audioFile.h"
 #include "audioPlayer.h"
 
-#include "../plugin-manager/pluginManager.h"
-
 #ifndef _DEBUG_LEVEL
 	#define _DEBUG_LEVEL 2
 #endif // _DEBUG_LEVEL

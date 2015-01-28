@@ -11,6 +11,7 @@
 
 #include "include.h"
 #include "audioStructure.h"
+#include "modifier.h"
 #include "audioRepository.h"
 
 #ifndef _DEBUG_LEVEL
@@ -18,6 +19,7 @@
 #endif // _DEBUG_LEVEL
 
 namespace mag{
+
 
 class sound : public audioStructure{
 public:
@@ -31,6 +33,9 @@ public:
 	virtual int writeFile(const char *file, int format = SF_FORMAT_WAV | SF_FORMAT_PCM_16);
 	int readFile(const char *file);
 
+	bool addModifier(); //implement these two
+	void removeModifier();
+
 	virtual int play();
 
 	std::shared_ptr<audioData> getAudioData();
@@ -39,8 +44,9 @@ private:
 	virtual int render();
 
     std::shared_ptr<audioData> mAudioData;
+    std::vector<modifier> mModifiers;
+
     static audioRepository *mRepo;
-    //std::vector<audioModifier> mModifier;
 };
 
 } // mag

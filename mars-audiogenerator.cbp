@@ -58,6 +58,8 @@
 		<Unit filename="src/mag/include.h" />
 		<Unit filename="src/mag/mag.cpp" />
 		<Unit filename="src/mag/mag.h" />
+		<Unit filename="src/mag/modifier.cpp" />
+		<Unit filename="src/mag/modifier.h" />
 		<Unit filename="src/mag/sound.cpp" />
 		<Unit filename="src/mag/sound.h" />
 		<Unit filename="src/plugin-manager/include.h" />
