@@ -34,7 +34,8 @@ public:
 
 	bool good();
 
-	bool addModifier(const char *name, mplug::pluginManager manager = gPlugManager);
+	bool addModifier(const char *name, mplug::pluginManager *manager = gPlugManager);
+	modifier *getModifier(const char *name);
 	void removeModifier(const char *name);
 	const char *listModifiers();
 

@@ -9,7 +9,7 @@
 
 namespace mag{
 
-mplug::pluginManager gPlugManager = NULL;
+mplug::pluginManager *gPlugManager = NULL;
 
 }
 

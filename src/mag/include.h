@@ -26,7 +26,7 @@
 
 namespace mag{
 
-extern mplug::pluginManager gPlugManager;
+extern mplug::pluginManager *gPlugManager;
 
 }
 

@@ -57,20 +57,42 @@ bool sound::good(){
 	return true;
 }
 
-bool sound::addModifier(const char *name, mplug::pluginManager manager){
-	//implement this!
+bool sound::addModifier(const char *name, mplug::pluginManager *manager){
+	modifier m(name, manager);
+	mModifiers.push_back(m);
+
 	mStatus &= !audioRenderCurrent;
 	return false;
 }
 
+modifier *sound::getModifier(const char *name){
+	mStatus &= !audioRenderCurrent;
+
+	for(unsigned int i = 0; i < mModifiers.size(); i++){
+		if(std::string(mModifiers[i].getName()) == std::string(name)){
+			return &mModifiers[i];
+		}
+	}
+
+	return NULL;
+}
+
 void sound::removeModifier(const char *name){
-	//implement this!
+	for(unsigned int i = 0; i < mModifiers.size(); i++){
+		if(std::string(mModifiers[i].getName()) == std::string(name)){
+			mModifiers.erase(mModifiers.begin() + i);
+		}
+	}
+
 	mStatus &= !audioRenderCurrent;
 	return;
 }
 
 const char *sound::listModifiers(){
-	//implement this!
+	for(unsigned int i = 0; i < mModifiers.size(); i++){
+		std::cout << mModifiers[i].getName() << " " << i << std::endl;;
+	}
+
 	return NULL;
 }
 

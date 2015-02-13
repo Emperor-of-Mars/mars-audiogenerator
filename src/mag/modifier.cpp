@@ -86,6 +86,7 @@ std::shared_ptr<audioData> modifier::render(std::shared_ptr<audioData> ad){
 }
 
 int modifier::calculate(void *data, unsigned int lenData){
+	if(mInterface == NULL) return -1;
 	return mInterface->command(mArguments.c_str(), data, lenData);
 }
 

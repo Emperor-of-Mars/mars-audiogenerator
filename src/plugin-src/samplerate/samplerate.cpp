@@ -29,7 +29,7 @@ public:
 		*(void***)data = ad->toAddressStructure();
 		std::cerr << "PLUGIN DEBUG 04" << std::endl;
 		
-		return cr;
+		return 1;
 	}
 };
 
