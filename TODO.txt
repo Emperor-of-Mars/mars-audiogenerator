@@ -1,5 +1,5 @@
 
 TODO:
-	use libsndfile
-	use portaudio
+	create static class for states
+	implement audiostream class
 
