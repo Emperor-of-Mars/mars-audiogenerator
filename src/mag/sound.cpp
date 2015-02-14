@@ -31,6 +31,9 @@ sound::sound(std::shared_ptr<audioData> data){
 }
 
 sound::~sound(){
+	for(unsigned int i = 0; i < mModifiers.size(); i++){
+		if(mModifiers[i] != NULL) delete mModifiers[i];
+	}
 }
 
 int sound::operator =(std::shared_ptr<audioData> data){
@@ -58,8 +61,7 @@ bool sound::good(){
 }
 
 bool sound::addModifier(const char *name, mplug::pluginManager *manager){
-	modifier m(name, manager);
-	mModifiers.push_back(m);
+	mModifiers.push_back(new modifier(name, manager));
 
 	mStatus &= !audioRenderCurrent;
 	return false;
@@ -69,8 +71,8 @@ modifier *sound::getModifier(const char *name){
 	mStatus &= !audioRenderCurrent;
 
 	for(unsigned int i = 0; i < mModifiers.size(); i++){
-		if(std::string(mModifiers[i].getName()) == std::string(name)){
-			return &mModifiers[i];
+		if(std::string(mModifiers[i]->getName()) == std::string(name)){
+			return mModifiers[i];
 		}
 	}
 
@@ -79,7 +81,8 @@ modifier *sound::getModifier(const char *name){
 
 void sound::removeModifier(const char *name){
 	for(unsigned int i = 0; i < mModifiers.size(); i++){
-		if(std::string(mModifiers[i].getName()) == std::string(name)){
+		if(std::string(mModifiers[i]->getName()) == std::string(name)){
+			delete mModifiers[i];
 			mModifiers.erase(mModifiers.begin() + i);
 		}
 	}
@@ -90,7 +93,7 @@ void sound::removeModifier(const char *name){
 
 const char *sound::listModifiers(){
 	for(unsigned int i = 0; i < mModifiers.size(); i++){
-		std::cout << mModifiers[i].getName() << " " << i << std::endl;;
+		std::cout << mModifiers[i]->getName() << " " << i << std::endl;;
 	}
 
 	return NULL;
@@ -113,9 +116,9 @@ int sound::render(){
 
 	*mResult = *mAudioData;
 	for(unsigned int i = 0; i < mModifiers.size(); i++){
-		if(mModifiers[i].getActive() == true){
+		if(mModifiers[i]->getActive() == true){
 			void** data = mResult->toAddressStructure();
-			if(mModifiers[i].calculate(&data, 0) == 1){
+			if(mModifiers[i]->calculate(&data, 0) == 1){
 				mResult->fromAddressStructure((void**)data);
 			}
 		}

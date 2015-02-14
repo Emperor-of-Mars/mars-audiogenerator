@@ -22,6 +22,9 @@
 
 namespace mag{
 
+int magInit(const char *configpath);
+int magQuit();
+mplug::pluginManager *getPluginManager();
 
 } // mag
 

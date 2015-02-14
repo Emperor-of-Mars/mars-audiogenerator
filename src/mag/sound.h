@@ -47,7 +47,7 @@ private:
 	virtual int render();
 
     std::shared_ptr<audioData> mAudioData;
-    std::vector<modifier> mModifiers;
+    std::vector<modifier *> mModifiers;
 
     static audioRepository *mRepo;
 };

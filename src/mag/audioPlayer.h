@@ -18,14 +18,7 @@
 
 namespace mag{
 
-
-struct audioStream{
-	unsigned long int mPosition;
-	unsigned long int mNumSamples;
-    unsigned short mChannels;
-	std::vector<float> *mData;
-};
-
+//move this into audiostream
 int audioPlayerCallback(const void *inputBuffer, void *outputBuffer,
 								unsigned long framesPerBuffer,
                           		const PaStreamCallbackTimeInfo* timeInfo,
@@ -33,6 +26,23 @@ int audioPlayerCallback(const void *inputBuffer, void *outputBuffer,
 								void *userData);
 
 int playAudio(audioData *data);
+
+class audioStream{
+public:
+	audioStream();
+	~audioStream();
+
+	int init();
+	int close();
+
+	int play(audioData *ad);
+	int pause(bool pause);
+	int stop();
+	int setPos(float pos);
+
+private:
+	audioData *mAudioData;
+};
 
 
 } // mag

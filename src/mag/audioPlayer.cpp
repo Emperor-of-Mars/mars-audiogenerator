@@ -16,7 +16,7 @@ int audioPlayerCallback(const void *inputBuffer, void *outputBuffer,
 						  PaStreamCallbackFlags statusFlags,
 						  void *userData)
 {
-	audioStream *data = (audioStream *)userData;
+	audioData *data = (audioData *)userData;
 	float *out = (float *)outputBuffer;
 	unsigned long realCount = frameCount;
 
@@ -25,10 +25,10 @@ int audioPlayerCallback(const void *inputBuffer, void *outputBuffer,
 	if(frameCount > data->mNumSamples) realCount = data->mNumSamples;
 
 	for(unsigned int i = 0; i < realCount * data->mChannels; i++){
-        out[i] = (*data->mData)[data->mPosition * data->mChannels + i];
+        out[i] = (data->mData)[data->mPos * data->mChannels + i];
     }
 
-	data->mPosition += realCount;
+	data->mPos += realCount;
 	data->mNumSamples -= realCount;
 
 	return paContinue;
@@ -43,14 +43,8 @@ int playAudio(audioData *data){
 		return 1;
 	}
 
-    audioStream st;
-    st.mData = &data->mData;
-    st.mNumSamples = data->mNumSamples;
-    st.mChannels = data->mChannels;
-    st.mPosition = 0;
-
     PaStream *stream = NULL;
-    err = Pa_OpenDefaultStream(&stream, 0, data->mChannels, paFloat32, data->mSampleRate, 512, audioPlayerCallback, &st);
+    err = Pa_OpenDefaultStream(&stream, 0, data->mChannels, paFloat32, data->mSampleRate, 512, audioPlayerCallback, data);
     if(err != paNoError){
 		std::cerr << "pa could not open stream: " << Pa_GetErrorText(err) << std::endl;
 		return 1;

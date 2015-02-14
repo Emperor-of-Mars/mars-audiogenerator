@@ -34,6 +34,7 @@ bool modifier::refresh(const char *name, mplug::pluginManager *manager){
 		mInterface = mManager->createInstance(name);
 		if(mInterface == NULL){
 			destroy();
+			mActive = false;
 			return false;
 		}
 		mActive = true;
@@ -43,8 +44,7 @@ bool modifier::refresh(const char *name, mplug::pluginManager *manager){
 
 void modifier::destroy(){
 	if(mInterface != NULL && mManager != NULL){
-		mManager->deletePlugin(mName.c_str());
-		mActive = false;
+		mManager->destroyInstance(mName.c_str(), mInterface);
 	}
 	mInterface = NULL;
 	mManager = NULL;

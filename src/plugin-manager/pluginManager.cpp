@@ -61,7 +61,6 @@ int pluginManager::loadPlugin(const char *pluginPath){
 const char *pluginManager::listPlugins(){
 	std::string *pluglist = new std::string;
     for(unsigned int i = 0; i < mPlugins.size(); i++){
-	    //std::cerr << mPlugins[i]->getName() << std::endl;
 	    pluglist->append(mPlugins[i]->getName());
 	    pluglist->append("\n");
     }
@@ -87,7 +86,9 @@ int pluginManager::destroyInstance(const char *pluginName, pluginInterface *inst
 int pluginManager::deletePlugin(const char *pluginName){
 	if(pluginName == NULL) return -1;
     for(unsigned int i = 0; i < mPlugins.size(); i++){
-	    if(mPlugins[i]->getName() == pluginName) mPlugins.erase(mPlugins.begin() + i);
+	    if(std::string(mPlugins[i]->getName()) == pluginName == 0){
+			mPlugins.erase(mPlugins.begin() + i);
+	    }
     }
     return 0;
 }
